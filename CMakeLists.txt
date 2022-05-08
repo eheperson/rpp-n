@@ -22,24 +22,29 @@ if(APPLE)
 endif()
 
 # Configure the header file to pass the version number to the source code
-configure_file(rppmConfig.h.in rppmConfig.h)
+configure_file(rppnConfig.h.in rppnConfig.h)
 
 # add the executable
 add_executable(${CMAKE_PROJECT_NAME} main.cpp)
 # add_executable(temp temp.cpp) #example to add new executable : Step1
 
+# setings for modules dir
+set(MODULES_DIR ${CMAKE_SOURCE_DIR}/modules)
+add_subdirectory(${MODULES_DIR})
 
-# add the binary tree to the search path for include files
-# so that we will find rppmConfig.h
+# add the binary tree to the search path for include files# so that we will find rppnConfig.h
 target_include_directories(${CMAKE_PROJECT_NAME} PUBLIC "${PROJECT_BINARY_DIR}")
 # target_include_directories(temp PUBLIC "${PROJECT_BINARY_DIR}") #example to add new executable : Step2
 
+# add the modules dir to the search path so that we will find ${MODULE_1}
+target_include_directories(${CMAKE_PROJECT_NAME} PUBLIC "${MODULES_DIR}")
+# target_include_directories(temp PUBLIC "${MODULES_DIR}") #example to adding modules path to search path for new executable : Step3
 
 # ---------------------- Installing Begin ----------------------
 # add the install targets
 install(TARGETS ${CMAKE_PROJECT_NAME} DESTINATION bin)
-# install(TARGETS temp DESTINATION bin) #example to add new executable : Step3 (installation)
-install(FILES "${PROJECT_BINARY_DIR}/rppmConfig.h"
+# install(TARGETS temp DESTINATION bin) #example to add new executable : Step4 (installation)
+install(FILES "${PROJECT_BINARY_DIR}/rppnConfig.h"
   DESTINATION include
   )
 # ---------------------- Installing End ------------------------

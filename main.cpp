@@ -2,14 +2,23 @@
 #include <iostream>
 #include <string>
 
-#include "rppmConfig.h"
+#include "rppnConfig.h"
+
+#ifdef USE_MODULE_1
+    #include "TestLib.h"
+#endif
 
 
 int main(int argc, char** argv){
 
 
     const std::string inputName = "Mr. Anderson";
-    std::cout << " 'ellooooo motherfucker " << std::endl;
+
+    #ifdef USE_MODULE_1
+        greetings(inputName);
+    #else
+        std::cout << " 'ellooooo from main.cpp" << std::endl;
+    #endif  
 
     return 0;
 }

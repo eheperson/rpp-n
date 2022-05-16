@@ -1,7 +1,5 @@
-# ignoring build directory
-**/build
-# ignoring app directory
-**/app
+# ignoring out directory
+**/out
 
 .vscode
 !.vscode/launch.json

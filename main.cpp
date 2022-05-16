@@ -2,10 +2,10 @@
 #include <iostream>
 #include <string>
 
-#include "rppnConfig.h"
+#include <rppnConfig.h>
 
 #ifdef USE_MODULE_1
-    #include "TestLib.h"
+    #include <TestLib.h>
 #endif
 
 

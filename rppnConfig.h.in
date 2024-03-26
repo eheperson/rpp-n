@@ -5,5 +5,5 @@
 #define rppnConfig_VERSION_MINOR @rppnConfig_VERSION_MINOR@
 #define rppnConfig_VERSION_PATCH @rppnConfig_VERSION_PATCH@
 
-// source code definitions USE_MODULE_1
-#cmakedefine USE_MODULE_1
+// source code definitions USE_TESTLIB
+#cmakedefine USE_TESTLIB

@@ -4,17 +4,15 @@
 
 #include <rppnConfig.h>
 
-#ifdef USE_MODULE_1
-    #include <TestLib.h>
+#ifdef USE_TESTLIB
+    #include "TestLib.h"
 #endif
 
 
 int main(int argc, char** argv){
-
-
     const std::string inputName = "Mr. Anderson";
 
-    #ifdef USE_MODULE_1
+    #ifdef USE_TESTLIB
         greetings(inputName);
     #else
         std::cout << " 'ellooooo from main.cpp" << std::endl;

@@ -1,4 +1,3 @@
-# ------------------------------------------------- Project Configs : Begin -------------------------------------------------
 cmake_minimum_required(VERSION 3.16...3.29 FATAL_ERROR)
 
 project(
@@ -19,10 +18,6 @@ set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 #     enable_language(OBJC)
 # endif()
 
-# ------------------------------------------------- Project Configs : End -------------------------------------------------
-
-
-# ------------------------------------------------- RPATH Settings : Begin -------------------------------------------------
 set(CMAKE_MACOSX_RPATH 1)
 set(CMAKE_SKIP_BUILD_RPATH FALSE)
 set(CMAKE_BUILD_WITH_INSTALL_RPATH FALSE)
@@ -34,23 +29,13 @@ list(FIND CMAKE_PLATFORM_IMPLICIT_LINK_DIRECTORIES "${CMAKE_INSTALL_PREFIX}/lib"
 if("${isSystemDir}" STREQUAL "-1")
     set(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}/lib")
 endif("${isSystemDir}" STREQUAL "-1")
-# ------------------------------------------------- RPATH Settings : End -------------------------------------------------
 
-
-# ------------------------------------------------- Source Code Configs : Begin -------------------------------------------------
 configure_file(rppnConfig.h.in ${CMAKE_BINARY_DIR}/rppnConfig.h)
 add_subdirectory(src)
-# ------------------------------------------------- Source Code Configs : End -------------------------------------------------
 
-
-
-# ------------------------------------------------- Installing : Begin -------------------------------------------------
 install(TARGETS ${CMAKE_PROJECT_NAME} DESTINATION bin)
 install(FILES "${PROJECT_BINARY_DIR}/rppmConfig.h" DESTINATION include)
-# ------------------------------------------------- Installing : End ---------------------------------------------------
 
-
-# ------------------------------------------------- Packing : Begin -------------------------------------------------
 set(CPACK_PACKAGE_VENDOR "eheperson")
 set(CPACK_SYSTEM_NAME "enivicivokki")
 set(CPACK_PACKAGE_DIRECTORY "${CMAKE_SOURCE_DIR}/out/package")
@@ -66,4 +51,3 @@ set(CPACK_PACKAGE_VERSION_MAJOR "${PROJECT_NAME_VERSION_MAJOR}")
 set(CPACK_PACKAGE_VERSION_MINOR "${PROJECT_NAME_VERSION_MINOR}")
 
 include(CPack)
-# ------------------------------------------------- Packing : End ---------------------------------------------------

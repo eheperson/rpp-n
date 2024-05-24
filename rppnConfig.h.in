@@ -6,4 +6,4 @@
 #define rppnConfig_VERSION_PATCH @rppnConfig_VERSION_PATCH@
 
 // source code definitions USE_TESTLIB
-#cmakedefine USE_TESTLIB
+#define USE_TESTLIB 1

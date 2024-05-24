@@ -31,7 +31,12 @@ if("${isSystemDir}" STREQUAL "-1")
 endif("${isSystemDir}" STREQUAL "-1")
 
 configure_file(rppnConfig.h.in ${CMAKE_BINARY_DIR}/rppnConfig.h)
-add_subdirectory(src)
+
+add_executable(${PROJECT_NAME}
+	src/main.cpp
+  src/TestLib.h src/TestLib.cpp
+)
+target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_BINARY_DIR})
 
 install(TARGETS ${CMAKE_PROJECT_NAME} DESTINATION bin)
 install(FILES "${PROJECT_BINARY_DIR}/rppmConfig.h" DESTINATION include)

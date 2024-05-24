@@ -1,51 +1,59 @@
-# RPP-N (Rec-Play-Pause Nano)
- Template repository for cross-platform cpp development based on CMake build system Resources
+Here's an improved version of your README for the RPP-N project:
 
-> **NOTE :** This repository is tested only on MacOS and debian based Linux Distributions. Will be updated for Windows in the future.
+# RPP-N (Rec-Play-Pause Nano)
+
+Template repository for cross-platform C++ development based on the CMake build system.
+
+## Resources
+
+> **Note:** This repository has been tested on macOS and Debian-based Linux distributions. Windows support will be added in the future.
 
 ### Who is this repository for?
-* If project based on CMakeLists build system.
-* If project requires develop extra libraries does not requires any 3Rd dependencies like `src/TestLib.h`.
+- Projects based on the CMake build system.
+- Projects that require the development of additional libraries that do not require any third-party dependencies, like `src/TestLib.h`.
 
 ### Requirements:
-* Cmake
-* Git
-* compiler xd
+- CMake
+- Git
+- Compiler
 
-## Preparing Development Environment
-```
-# clone the repo
+## Preparing the Development Environment
+
+### Clone the repository:
+```bash
 git clone git@github.com:eheperson/rpp-n.git
-
 ```
 
-Generate the build files using CMake for Release configuration:
+### Generate the build files using CMake (Release configuration):
+
+For Windows:
 ```bash
-# Windows
-cmake -G "MinGW Makefiles" -DUSE_TESTLIB=ON -DCMAKE_INSTALL_PREFIX=out/app -S . -B out//build
-
-# Unix/Linux
-cmake -DUSE_TESTLIB=ON -DCMAKE_INSTALL_PREFIX=out/app -S . -B out//build
-
+cmake -G "MinGW Makefiles" -DCMAKE_INSTALL_PREFIX=out/app -S . -B out/build
 ```
 
-Build the project (Release configuration will be used by default)
+For Unix/Linux:
 ```bash
-cmake  --build .//out//build -j 12 -v
+cmake -DCMAKE_INSTALL_PREFIX=out/app -S . -B out/build
 ```
 
-Install the project (Release configuration will be used by default)
+### Build the project (Release configuration will be used by default):
 ```bash
-cmake --install .//out//build  --verbose
+cmake --build out/build -j 12 -v
 ```
 
-
-Package the project
+### Install the project (Release configuration will be used by default):
 ```bash
-cpack .\out\build  -c Debug --verbose
+cmake --install out/build --verbose
 ```
 
---- 
+### Package the project:
+```bash
+cpack out/build -c Debug --verbose
+```
+
+---
 
 ### TODOs
-- inlcude compiler options to the cmake
+- Include compiler options in the CMake configuration.
+- Update the `bake.sh` file to automate develop/build/test/clean process on Linux/Unix systems
+- Implement the `bake.bat` file to automate develop/build/test/clean process on Windows systems

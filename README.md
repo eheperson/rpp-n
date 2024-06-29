@@ -1,5 +1,3 @@
-Here's an improved version of your README for the RPP-N project:
-
 # RPP-N (Rec-Play-Pause Nano)
 
 Template repository for cross-platform C++ development based on the CMake build system.
